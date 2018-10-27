@@ -9,6 +9,22 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
+        <TextBlock HorizontalAlignment="Left" Margin="134,144,0,0" Text="Width of window:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="widthInput" HorizontalAlignment="Left" Margin="307,138,0,0" Text="" VerticalAlignment="Top" Width="171" KeyUp="widthInput_KeyUp"/>
+        <TextBlock HorizontalAlignment="Left" Margin="130,219,0,0" Text="Height of window:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="heightInput" HorizontalAlignment="Left" Margin="307,213,0,0" Text="" VerticalAlignment="Top" Width="171" KeyUp="heightInput_KeyUp"/>
+        <TextBlock x:Name="quantityNum" HorizontalAlignment="Left" Margin="588,372,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
+        <Slider x:Name="quantitySlider" HorizontalAlignment="Left" Margin="309,364,0,0" VerticalAlignment="Top" Width="254" ValueChanged="quantitySlider_ValueChanged" StepFrequency="1" Maximum="20" Minimum="1"/>
+        <ComboBox x:Name="tintDropDown" HorizontalAlignment="Left" Margin="307,292,0,0" VerticalAlignment="Top" Width="171">
+            <ComboBoxItem Content="Black"/>
+            <ComboBoxItem Content="Brown"/>
+            <ComboBoxItem Content="Blue"/>
+        </ComboBox>
+        <TextBlock x:Name="output" HorizontalAlignment="Left" Margin="130,530,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="263"/>
+        <Button Content="Calculate" HorizontalAlignment="Left" Margin="563,553,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <TextBlock x:Name="widthWarning" HorizontalAlignment="Left" Margin="307,175,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+        <TextBlock x:Name="heightWarning" HorizontalAlignment="Left" Margin="307,253,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+        <TextBlock x:Name="tintLabel" HorizontalAlignment="Left" Margin="186,298,0,0" Text="Tint Color" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="192,372,0,0" Text="Quantity:" TextWrapping="Wrap" VerticalAlignment="Top"/>
     </Grid>
 </Page>

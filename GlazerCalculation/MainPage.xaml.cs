@@ -26,5 +26,77 @@ namespace GlazerCalculation
         {
             this.InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            double width, height, woodLength, glassArea;
+            width = double.Parse(widthInput.Text);
+            height = double.Parse(heightInput.Text);
+            woodLength = 2 * (width + height) * 3.25;
+            glassArea = 2 * (width * height) * 3.25;
+            double quant = double.Parse(quantityNum.Text);
+            //string tint = tintDropDown.SelectedItem as string;
+            // I know this isn't the correct way to do this, but I couldn't get the tintDropDown.SelectedItem to work.
+            string tint = "None";
+            int q = tintDropDown.SelectedIndex;
+            switch (q)
+            {
+                case 0:
+                    tint = "Black";
+                    break;
+                case 1:
+                    tint = "Brown";
+                    break;
+                case 2:
+                    tint = "Blue";
+                    break;
+            }
+            output.Text = $"Quantity: {quant}\n" +
+                $"Tint: {tint}\n" +
+                $"Length: {woodLength}\n" +
+                $"Area: {glassArea}";
+        }
+
+        private void widthInput_KeyUp(object sender, KeyRoutedEventArgs e)
+        {
+            string widthString = widthInput.Text;
+            if (!int.TryParse(widthString, out int width))
+            {
+                widthInput.BorderBrush = new SolidColorBrush(Windows.UI.Colors.Red);
+                widthWarning.Foreground = new SolidColorBrush(Windows.UI.Colors.Red);
+                widthWarning.Text = "Width must be a number.";
+            }
+            else
+            {
+                widthInput.BorderBrush = new SolidColorBrush(Windows.UI.Colors.Gray);
+                widthWarning.Text = "";
+            }
+        }
+
+        private void heightInput_KeyUp(object sender, KeyRoutedEventArgs e)
+        {
+            string heightString = widthInput.Text;
+            if (!int.TryParse(heightString, out int width))
+            {
+                heightInput.BorderBrush = new SolidColorBrush(Windows.UI.Colors.Red);
+                widthInput.Foreground = new SolidColorBrush(Windows.UI.Colors.Red);
+                heightWarning.Text = "Height must be a number.";
+            }
+            else
+            {
+                heightInput.BorderBrush = new SolidColorBrush(Windows.UI.Colors.Gray);
+                heightWarning.Text = "";
+            }
+        }
+
+        private void quantitySlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            //Slider slider = sender as Slider;
+            //if (slider != null)
+            //{
+                //quantityNum.Text = quantitySlider.Value.ToString();
+            //}
+            quantityNum.Text = quantitySlider.Value.ToString();
+        }
     }
 }
