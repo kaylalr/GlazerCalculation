@@ -35,22 +35,7 @@ namespace GlazerCalculation
             woodLength = 2 * (width + height) * 3.25;
             glassArea = 2 * (width * height) * 3.25;
             double quant = double.Parse(quantityNum.Text);
-            //string tint = tintDropDown.SelectedItem as string;
-            // I know this isn't the correct way to do this, but I couldn't get the tintDropDown.SelectedItem to work.
-            string tint = "None";
-            int q = tintDropDown.SelectedIndex;
-            switch (q)
-            {
-                case 0:
-                    tint = "Black";
-                    break;
-                case 1:
-                    tint = "Brown";
-                    break;
-                case 2:
-                    tint = "Blue";
-                    break;
-            }
+            string tint = ((ComboBoxItem)tintDropDown.SelectedItem).Content.ToString(); ;
             output.Text = $"Quantity: {quant}\n" +
                 $"Tint: {tint}\n" +
                 $"Length: {woodLength}\n" +
